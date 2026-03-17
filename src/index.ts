@@ -225,7 +225,7 @@ class GongClient {
     if (args.toDateTime) filter.toDateTime = args.toDateTime;
 
     const contentSelector = {
-      exposedFields: { parties: true, content: false }
+      exposedFields: { parties: true }
     };
 
     const calls = await this.paginatePost<GongExtensiveCall>(
@@ -256,7 +256,7 @@ class GongClient {
       '/calls/extensive', 'calls',
       {
         filter: { callIds: [callId] },
-        contentSelector: { exposedFields: { parties: true, content: true } }
+        contentSelector: { exposedFields: { parties: true } }
       }
     );
     return calls[0] || null;
